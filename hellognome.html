@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello, GNOME!</title>
+
+		<!-- Use Javascript to show a greeting when someone clicks the button -->
+		<script type="application/javascript">
+    function greeting () {
+      document.getElementById ("greeting").innerHTML = ("O hai!");
+    }
+    </script>
+
+  </head>
+  <body>
+    <br /><br />
+    <button type="button" onclick="greeting()">Hello, GNOME!</button>
+
+    <!-- Empty H1 elements gets filled in when the button is clicked -->
+    <h1 id="greeting"></h1>
+  </body>
+</html> 
