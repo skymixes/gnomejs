@@ -52,3 +52,8 @@ const HelloGNOME = new Lang.Class ({
       },
 
 });
+
+    // Run the application
+    let app = new HelloGNOME ();
+    app.application.run (ARGV);
+
