@@ -47,6 +47,8 @@ const WelcomeToTheGrid = new Lang.Class({
           margin_top: 20 });
 
         this._label2 = new Gtk.Label ({ label: "Este ejemplo con GTK mola!" });
+        this._label3 = new Gtk.Label ({ label: "Agregando una nueva columna" });
+
 
         //Creamos la parrilla (Grid) para poner los elementos
         this._grid = new Gtk.Grid ({
@@ -56,9 +58,11 @@ const WelcomeToTheGrid = new Lang.Class({
         });
 
         //Agregamos los elementos imagen y etiqueta a la parrilla
-        this._grid.attach (this._image, 0, 1, 1, 1);
+        // en la imagen identificamos que va a ocupar dos celdillas
+        this._grid.attach (this._image, 0, 1, 2, 1);
         this._grid.attach (this._label, 0, 2, 1, 1);
         this._grid.attach (this._label2, 0, 0, 1, 1);
+        this._grid.attach (this._label3, 1, 2, 1, 1);
 
         //Añadimos a la ventana la rejilla
         this._window.add (this._grid);
