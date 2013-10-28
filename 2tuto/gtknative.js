@@ -53,7 +53,9 @@ const WelcomeToTheGrid = new Lang.Class({
         
         this._label3 = new Gtk.Label ({ label: "Agregando una nueva columna" });
 
-        
+        //Creamos un boton
+        this._button = new Gtk.Button ({
+            label: "Bienvenido a GNOME!!"});
 
 
         //Creamos la parrilla (Grid) para poner los elementos
@@ -65,13 +67,18 @@ const WelcomeToTheGrid = new Lang.Class({
         //    margin_left: 10
         });
 
+        //Añádimos las imagenes y el boton al grid
+        this._grid.attach (this._image, 0, 0, 2, 1);
+        this._grid.attach (this._icon, 0, 1, 1, 1);
+        this._grid.attach (this._button, 1, 1, 1, 1);
+
         //Agregamos los elementos imagen y etiqueta a la parrilla
         // en la imagen identificamos que va a ocupar dos celdillas
-        this._grid.attach (this._image, 0, 1, 2, 1);
-        this._grid.attach (this._label, 1, 2, 1, 1);
-        this._grid.attach (this._label2, 1, 0, 2, 1);
+//        this._grid.attach (this._image, 0, 1, 2, 1);
+//        this._grid.attach (this._label, 1, 2, 1, 1);
+//        this._grid.attach (this._label2, 1, 0, 2, 1);
 //        this._grid.attach (this._label3, 2, 2, 1, 1);
-        this._grid.attach (this._icon, 0, 2, 1, 1);
+//        this._grid.attach (this._icon, 0, 2, 1, 1);
 
         //Añadimos a la ventana la rejilla
         this._window.add (this._grid);
