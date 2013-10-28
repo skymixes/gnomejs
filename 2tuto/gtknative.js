@@ -42,11 +42,18 @@ const WelcomeToTheGrid = new Lang.Class({
         this._image = new Gtk.Image ({file: "gnome-image.png" });
 
         //Creamos una etiqueta
-        this._label = new Gtk.Label ({ label: "Bienvenidos a GNOME, Gtk!!" });
+        this._label = new Gtk.Label ({ 
+          label: "Bienvenidos a GNOME, Gtk!!",
+          margin_top: 20 });
+
         this._label2 = new Gtk.Label ({ label: "Este ejemplo con GTK mola!" });
 
         //Creamos la parrilla (Grid) para poner los elementos
-        this._grid = new Gtk.Grid ();
+        this._grid = new Gtk.Grid ({
+            row_spacing: 20,
+            margin_right: 10,
+            margin_left: 10
+        });
 
         //Agregamos los elementos imagen y etiqueta a la parrilla
         this._grid.attach (this._image, 0, 1, 1, 1);
