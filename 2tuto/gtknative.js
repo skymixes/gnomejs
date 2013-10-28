@@ -53,15 +53,17 @@ const WelcomeToTheGrid = new Lang.Class({
         //Creamos la parrilla (Grid) para poner los elementos
         this._grid = new Gtk.Grid ({
             row_spacing: 20,
-            margin_right: 10,
-            margin_left: 10
+            column_spacing: 20,
+          //    column_homogeneous: true,
+        //    margin_right: 10,
+        //    margin_left: 10
         });
 
         //Agregamos los elementos imagen y etiqueta a la parrilla
         // en la imagen identificamos que va a ocupar dos celdillas
         this._grid.attach (this._image, 0, 1, 2, 1);
         this._grid.attach (this._label, 0, 2, 1, 1);
-        this._grid.attach (this._label2, 0, 0, 1, 1);
+        this._grid.attach (this._label2, 0, 0, 2, 1);
         this._grid.attach (this._label3, 1, 2, 1, 1);
 
         //Añadimos a la ventana la rejilla
