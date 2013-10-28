@@ -38,9 +38,9 @@ const HelloGNOME = new Lang.Class ({
         // Create the application window
         this._window = new Gtk.ApplicationWindow  ({
             application: this.application,
-            title: "Welcome to GNOME",
-            default_height: 200,
-            default_width: 400,
+            title: "Bienvenidos a GNOME",
+            default_height: 50,
+            default_width: 50,
             window_position: Gtk.WindowPosition.CENTER });
 
         // Create a webview to show the web app
