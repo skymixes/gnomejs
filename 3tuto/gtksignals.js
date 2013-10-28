@@ -20,7 +20,7 @@ const GettingTheSignal = new Lang.Class({
 
       //Funcion callback para la señal 'activate' que existe cuando la ventana esta activa
       _onActivate: function() {
-        thiw._window.present();
+        this._window.present();
       },
 
       //Funcion callback para 'startup' que construye el UI
@@ -37,6 +37,26 @@ const GettingTheSignal = new Lang.Class({
           default_height: 200,
           default_width: 400,
           title: "Pulsa el boton para conseguir galletitas!"});
+
+        //Creamos un swith para el control de la aplicacion
+        this._cookieSwitch = new Gtk.Switch();
+
+        //Creamos una etiqueta del switch
+        this._switchLabel = new Gtk.Label({
+          label: "Dispensador de Galletas" }),
+
+        //Creamos el grid que alojara la etiqueta y el switch
+        this._switchGrid = new Gtk.Grid ({
+          halign: Gtk.Align.CENTER,
+          valign: Gtk.Align.CENTER });
+
+        //Ponemos el switch junto a su etiqueta en el nuevo grid
+        this._switchGrid.attach(this._switchLabel, 0, 0, 1, 1);
+        this._switchGrid.attach(this._cookieSwitch, 1, 0, 1, 1);
+
+
+        //Conectamos el switch a la funcion que lo gestiona
+        this._cookieSwitch.connect ('notify::active', Lang.bind (this, this._cookieDispenser));
 
         //Creamos la etiqueta label que identifica las galletas
         this._cookieLabel = new Gtk.Label ({
@@ -56,6 +76,9 @@ const GettingTheSignal = new Lang.Class({
 
         //Ponemos todo en el grid
         this._grid.attach (this._cookieButton, 0, 0, 1, 1);
+
+    //    this._grid.attach (this._switchGrid, 0, 1, 1, 1);
+
         this._grid.attach (this._cookieLabel, 0, 1, 1, 1);
 
         //Agregamos el grid a la ventana
@@ -68,9 +91,12 @@ const GettingTheSignal = new Lang.Class({
 
       _getACookie: function() {
 
+        // Esta el dispensador de galletas activo?
+
         //Incrementamos el numero de galletitas en 1 y actualizamos la etiqueta
         cookies++;
         this._cookieLabel.set_label("Numero de galletitas: " + cookies);
+  //      }
       }
 
 });
